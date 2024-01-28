@@ -39,32 +39,40 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-       /*
-        OutsourcedPart o= new OutsourcedPart();
-        o.setCompanyName("Western Governors University");
-        o.setName("out test");
-        o.setInv(5);
-        o.setPrice(20.0);
-        o.setId(100L);
-        outsourcedPartRepository.save(o);
-        OutsourcedPart thePart=null;
-        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("out test"))thePart=part;
-        }
 
-        System.out.println(thePart.getCompanyName());
-        */
-        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            System.out.println(part.getName()+" "+part.getCompanyName());
-        }
+//        OutsourcedPart o= new OutsourcedPart();
+//        o.setCompanyName("Skateboard Wholesale");
+//        o.setName("KUNG FU GRIPTAPE SINGLE SHEET 9×33 BLACK");
+//        o.setMinInventory(1);
+//        o.setMaxInventory(15);
+//        o.setInv(5);
+//        o.setPrice(6.0);
+//        o.setId(4L);
+//        outsourcedPartRepository.save(o);
+//        OutsourcedPart thePart=null;
+//        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
+//        for(OutsourcedPart part:outsourcedParts){
+//            if(part.getName().equals("KUNG FU GRIPTAPE SINGLE SHEET 9×33 BLACK"))thePart=part;
+//        }
+
+//        System.out.println(thePart.getCompanyName());
+
+//        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
+//        for(OutsourcedPart part:outsourcedParts){
+//            System.out.println(part.getName()+" "+part.getCompanyName());
+//        }
 
         /*
-        Product bicycle= new Product("bicycle",100.0,15);
-        Product unicycle= new Product("unicycle",100.0,15);
-        productRepository.save(bicycle);
-        productRepository.save(unicycle);
+        Product caballero= new Product("PWL/P CABALLERO CHINESE DRAGON 21 DK-10X30 SAGE",100.0,15);
+        Product hoefler= new Product("PWL/P HOEFLER PHOENIX DK-8.0 flight",100.0,15);
+        Product rodriguez= new Product("PWL/P RODRIGUEZ SKULL/SWORD 10 DK-10X30 RED STAIN", 100.0, 15);
+        Product primitive= new Product("PRIMITIVE LEMOS ULTIMATE WARRIOR DECK-8.25 BLACK", 100.0, 15);
+        Product bw= new Product("BW GREGSON MERCYFUL FATE DECK-8.5", 100.0, 15);
+        productRepository.save(caballero);
+        productRepository.save(hoefler);
+        productRepository.save(rodriguez);
+        productRepository.save(primitive);
+        productRepository.save(bw);
         */
 
         System.out.println("Started in Bootstrap");
