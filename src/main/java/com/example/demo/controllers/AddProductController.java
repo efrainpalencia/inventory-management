@@ -127,6 +127,18 @@ public class AddProductController {
         return "confirmationdeleteproduct";
     }
 
+    @GetMapping("/buyproduct")
+    public String buyProduct(@RequestParam("productID") int theId, Model theModel) {
+        ProductService productService = context.getBean(ProductServiceImpl.class);
+        Product product2=productService.findById(theId);
+        int currInventory = product2.getInv();
+        if (currInventory > 0) {
+          product2.setInv(currInventory - 1);
+          productService.save(product2);
+        }
+        return "confirmationbuyproduct";
+    }
+
     public AddProductController(PartService partService) {
         this.partService = partService;
     }
