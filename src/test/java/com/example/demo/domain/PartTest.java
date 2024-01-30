@@ -2,11 +2,16 @@ package com.example.demo.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validator;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Project: demoDarbyFrameworks2-master
@@ -22,10 +27,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PartTest {
     Part partIn;
     Part partOut;
+
+    private Validator validator;
     @BeforeEach
     void setUp() {
         partIn=new InhousePart();
         partOut=new OutsourcedPart();
+        LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
+        localValidatorFactoryBean.afterPropertiesSet();
+        validator = localValidatorFactoryBean;
     }
     @Test
     void getId() {
@@ -139,21 +149,69 @@ class PartTest {
 
     @Test
     void testEquals() {
-        partIn.setId(1l);
+        partIn.setId(1L);
         Part newPartIn=new InhousePart();
-        newPartIn.setId(1l);
+        newPartIn.setId(1L);
         assertEquals(partIn,newPartIn);
-        partOut.setId(1l);
+        partOut.setId(1L);
         Part newPartOut=new OutsourcedPart();
-        newPartOut.setId(1l);
+        newPartOut.setId(1L);
         assertEquals(partOut,newPartOut);
 
     }
 
     @Test
     void testHashCode() {
-        partIn.setId(1l);
-        partOut.setId(1l);
+        partIn.setId(1L);
+        partOut.setId(1L);
         assertEquals(partIn.hashCode(),partOut.hashCode());
+    }
+
+    @Test
+    void minInventoryShouldNotBeBelowMinimum() {
+        Part partIn = new InhousePart();
+        int invalidMinInventoryValue = -1;
+        partIn.setMinInventory(invalidMinInventoryValue);
+
+        Set<ConstraintViolation<Part>> violations = validator.validate(partIn);
+
+        assertFalse(violations.isEmpty(), "Expected ConstraintViolationException");
+    }
+
+
+
+    @Test
+    void minInventoryShouldNotExceedMaximum() {
+        partIn.setMinInventory(16);
+
+        try {
+            partIn.setMinInventory(partIn.getMinInventory());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    void maxInventoryShouldNotBeBelowMinimum() {
+
+        Part partIn = new InhousePart();
+        int invalidMinInventoryValue = -1;
+        partIn.setMinInventory(invalidMinInventoryValue);
+
+        Set<ConstraintViolation<Part>> violations = validator.validate(partIn);
+
+        assertFalse(violations.isEmpty(), "Expected ConstraintViolationException");
+    }
+
+    @Test
+    void maxInventoryShouldNotExceedMaximum() {
+        partIn.setMinInventory(16);
+
+        try {
+            partIn.setMinInventory(partIn.getMinInventory());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

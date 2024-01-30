@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import com.example.demo.validators.ValidDeletePart;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -26,14 +27,16 @@ public abstract class Part implements Serializable {
     String name;
     @Min(value = 0, message = "Price value must be positive")
     double price;
-    @Min(value = 0, message = "Inventory value must be positive")
+    @Min(value = 0, message = "Error! Inventory is below the minimum!")
+//    @Max(value = 15, message = "Error! Inventory is greater than the maximum!")
     int inv;
 
-    @Min(value = 0, message = "Min Inventory value must be positive")
-    @Column(name = "min_inventory")
+    @Min(value = 1, message = "Error! Inventory is below the minimum!")
+    @Max(value = 15, message = "Error! Inventory is greater than the maximum!")
     int minInventory;
 
-    @Min(value = 0, message = "Max Inventory value must be positive")
+    @Min(value = 1, message = "Error! Inventory is below the minimum!")
+    @Max(value = 15, message = "Error! Inventory is greater than the maximum!")
     @Column(name = "max_inventory")
     int maxInventory;
 
