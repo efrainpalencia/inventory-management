@@ -182,7 +182,7 @@ class PartTest {
 
     @Test
     void minInventoryShouldNotExceedMaximum() {
-        partIn.setMinInventory(16);
+        partIn.setMinInventory(2);
 
         try {
             partIn.setMinInventory(partIn.getMinInventory());
@@ -206,7 +206,7 @@ class PartTest {
 
     @Test
     void maxInventoryShouldNotExceedMaximum() {
-        partIn.setMinInventory(16);
+        partIn.setMinInventory(2);
 
         try {
             partIn.setMinInventory(partIn.getMinInventory());

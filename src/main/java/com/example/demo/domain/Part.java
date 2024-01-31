@@ -28,21 +28,22 @@ public abstract class Part implements Serializable {
     @Min(value = 0, message = "Price value must be positive")
     double price;
     @Min(value = 0, message = "Error! Inventory is below the minimum!")
-//    @Max(value = 15, message = "Error! Inventory is greater than the maximum!")
+    @Max(value = 1, message = "Error! Inventory is greater than the maximum!")
     int inv;
 
-    @Min(value = 1, message = "Error! Inventory is below the minimum!")
-    @Max(value = 15, message = "Error! Inventory is greater than the maximum!")
+    @Min(value = 0, message = "Error! Inventory is below the minimum!")
+    @Max(value = 1, message = "Error! Inventory is greater than the maximum!")
     int minInventory;
 
-    @Min(value = 1, message = "Error! Inventory is below the minimum!")
-    @Max(value = 15, message = "Error! Inventory is greater than the maximum!")
+    @Min(value = 0, message = "Error! Inventory is below the minimum!")
+    @Max(value = 1, message = "Error! Inventory is greater than the maximum!")
     @Column(name = "max_inventory")
     int maxInventory;
 
     @ManyToMany
-    @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
-            inverseJoinColumns=@JoinColumn(name="product_id"))
+   @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
+           inverseJoinColumns=@JoinColumn(name="product_id"))
+
     Set<Product> products= new HashSet<>();
 
     public Part() {
