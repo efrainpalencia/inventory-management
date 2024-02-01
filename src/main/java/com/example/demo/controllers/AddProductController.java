@@ -27,7 +27,7 @@ import java.util.List;
 public class AddProductController {
     @Autowired
     private ApplicationContext context;
-    private PartService partService;
+    private final PartService partService;
     private List<Part> theParts;
     private static Product product1;
     private Product product;

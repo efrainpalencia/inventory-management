@@ -25,8 +25,8 @@ public class MainScreenControllerr {
    // private final PartRepository partRepository;
    // private final ProductRepository productRepository;'
 
-    private PartService partService;
-    private ProductService productService;
+    private final PartService partService;
+    private final ProductService productService;
 
     private List<Part> theParts;
     private List<Product> theProducts;

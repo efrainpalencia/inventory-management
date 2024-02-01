@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @Service
 public class PartServiceImpl implements PartService{
-        private PartRepository partRepository;
+        private final PartRepository partRepository;
 
         @Autowired
 

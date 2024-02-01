@@ -55,7 +55,6 @@ public class BootStrapData implements CommandLineRunner {
         inhousePartRepository.save(part1);
 
         InhousePart part2 = new InhousePart();
-
         part2.setName("THERE MILLER AROUND DECK-8.5X32.0");
         part2.setPrice(75.0);
         part2.setInv(1);
