@@ -36,18 +36,18 @@ public class MainScreenControllerr {
         this.productRepository = productRepository;
     }*/
 
-    public MainScreenControllerr(PartService partService,ProductService productService){
+    public MainScreenControllerr(final PartService partService, final ProductService productService){
         this.partService=partService;
         this.productService=productService;
     }
     @GetMapping("/mainscreen")
-    public String listPartsandProducts(Model theModel, @Param("partkeyword") String partkeyword, @Param("productkeyword") String productkeyword){
+    public String listPartsandProducts(final Model theModel, @Param("partkeyword") final String partkeyword, @Param("productkeyword") final String productkeyword){
         //add to the sprig model
-        List<Part> partList=partService.listAll(partkeyword);
+        final List<Part> partList= this.partService.listAll(partkeyword);
         theModel.addAttribute("parts",partList);
         theModel.addAttribute("partkeyword",partkeyword);
     //    theModel.addAttribute("products",productService.findAll());
-        List<Product> productList=productService.listAll(productkeyword);
+        final List<Product> productList= this.productService.listAll(productkeyword);
         theModel.addAttribute("products", productList);
         theModel.addAttribute("productkeyword",productkeyword);
         return "mainscreen";

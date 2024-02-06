@@ -34,13 +34,13 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(String name, double price, int inv) {
+    public Product(final String name, final double price, final int inv) {
         this.name = name;
         this.price = price;
         this.inv = inv;
     }
 
-    public Product(long id, String name, double price, int inv) {
+    public Product(final long id, final String name, final double price, final int inv) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -48,60 +48,60 @@ public class Product implements Serializable {
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
-    public void setId(long id) {
+    public void setId(final long id) {
         this.id = id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
     public double getPrice() {
-        return price;
+        return this.price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(final double price) {
         this.price = price;
     }
 
     public int getInv() {
-        return inv;
+        return this.inv;
     }
 
-    public void setInv(int inv) {
+    public void setInv(final int inv) {
         this.inv = inv;
     }
 
     public Set<Part> getParts() {
-        return parts;
+        return this.parts;
     }
 
-    public void setParts(Set<Part> parts) {
+    public void setParts(final Set<Part> parts) {
         this.parts = parts;
     }
 
     public String toString(){
-        return this.name;
+        return name;
     }
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (null == o || this.getClass() != o.getClass()) return false;
 
-        Product product = (Product) o;
+        final Product product = (Product) o;
 
-        return id == product.id;
+        return this.id == product.id;
     }
 
     @Override
     public int hashCode() {
-        return (int) (id ^ (id >>> 32));
+        return (int) (this.id ^ (this.id >>> 32));
     }
 }

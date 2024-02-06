@@ -49,7 +49,7 @@ public abstract class Part implements Serializable {
     public Part() {
     }
 
-    public Part(String name, double price, int inv, int minInventory, int maxInventory) {
+    public Part(final String name, final double price, final int inv, final int minInventory, final int maxInventory) {
         this.name = name;
         this.price = price;
         this.inv = inv;
@@ -57,7 +57,7 @@ public abstract class Part implements Serializable {
         this.maxInventory = maxInventory;
     }
 
-    public Part(long id, String name, double price, int inv, int minInventory, int maxInventory) {
+    public Part(final long id, final String name, final double price, final int inv, final int minInventory, final int maxInventory) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -67,76 +67,76 @@ public abstract class Part implements Serializable {
     }
 
     public int getMinInventory() {
-        return minInventory;
+        return this.minInventory;
     }
 
-    public void setMinInventory(int minInventory) {
+    public void setMinInventory(final int minInventory) {
         this.minInventory = minInventory;
     }
 
     public int getMaxInventory() {
-        return maxInventory;
+        return this.maxInventory;
     }
 
-    public void setMaxInventory(int maxInventory) {
+    public void setMaxInventory(final int maxInventory) {
         this.maxInventory = maxInventory;
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
-    public void setId(long id) {
+    public void setId(final long id) {
         this.id = id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
     public double getPrice() {
-        return price;
+        return this.price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(final double price) {
         this.price = price;
     }
 
     public int getInv() {
-        return inv;
+        return this.inv;
     }
 
-    public void setInv(int inv) {
+    public void setInv(final int inv) {
         this.inv = inv;
     }
 
     public Set<Product> getProducts() {
-        return products;
+        return this.products;
     }
 
-    public void setProducts(Set<Product> products) {
+    public void setProducts(final Set<Product> products) {
         this.products = products;
     }
 
     public String toString(){
-        return this.name;
+        return name;
     }
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (null == o || this.getClass() != o.getClass()) return false;
 
-        Part part = (Part) o;
+        final Part part = (Part) o;
 
-        return id == part.id;
+        return this.id == part.id;
     }
 
     @Override
     public int hashCode() {
-        return (int) (id ^ (id >>> 32));
+        return (int) (this.id ^ (this.id >>> 32));
     }
 }

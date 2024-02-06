@@ -22,19 +22,19 @@ public class ProductServiceImpl implements ProductService{
 
     @Autowired
 
-    public ProductServiceImpl(ProductRepository productRepository) {
+    public ProductServiceImpl(final ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
     @Override
     public List<Product> findAll() {
-        return (List<Product>) productRepository.findAll();
+        return (List<Product>) this.productRepository.findAll();
     }
 
     @Override
-    public Product findById(int theId) {
-        Long theIdl=(long)theId;
-        Optional<Product> result = productRepository.findById(theIdl);
+    public Product findById(final int theId) {
+        final Long theIdl=(long)theId;
+        final Optional<Product> result = this.productRepository.findById(theIdl);
 
         Product theProduct = null;
 
@@ -50,20 +50,20 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public void save(Product theProduct) {
-        productRepository.save(theProduct);
+    public void save(final Product theProduct) {
+        this.productRepository.save(theProduct);
 
     }
 
     @Override
-    public void deleteById(int theId) {
-        Long theIdl=(long)theId;
-        productRepository.deleteById(theIdl);
+    public void deleteById(final int theId) {
+        final Long theIdl=(long)theId;
+        this.productRepository.deleteById(theIdl);
     }
-    public List<Product> listAll(String keyword){
-        if(keyword !=null){
-            return productRepository.search(keyword);
+    public List<Product> listAll(final String keyword){
+        if(null != keyword){
+            return this.productRepository.search(keyword);
         }
-        return (List<Product>) productRepository.findAll();
+        return (List<Product>) this.productRepository.findAll();
     }
 }

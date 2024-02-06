@@ -22,24 +22,24 @@ public class PartServiceImpl implements PartService{
 
         @Autowired
 
-    public PartServiceImpl(PartRepository partRepository) {
+    public PartServiceImpl(final PartRepository partRepository) {
         this.partRepository = partRepository;
     }
 
     @Override
     public List<Part> findAll() {
-        return (List<Part>) partRepository.findAll();
+        return (List<Part>) this.partRepository.findAll();
     }
-    public List<Part> listAll(String keyword){
-        if(keyword !=null){
-            return partRepository.search(keyword);
+    public List<Part> listAll(final String keyword){
+        if(null != keyword){
+            return this.partRepository.search(keyword);
         }
-        return (List<Part>) partRepository.findAll();
+        return (List<Part>) this.partRepository.findAll();
     }
     @Override
-    public Part findById(int theId) {
-        Long theIdl=(long)theId;
-        Optional<Part> result = partRepository.findById(theIdl);
+    public Part findById(final int theId) {
+        final Long theIdl=(long)theId;
+        final Optional<Part> result = this.partRepository.findById(theIdl);
 
         Part thePart = null;
 
@@ -55,14 +55,14 @@ public class PartServiceImpl implements PartService{
     }
 
     @Override
-    public void save(Part thePart) {
-            partRepository.save(thePart);
+    public void save(final Part thePart) {
+        this.partRepository.save(thePart);
 
     }
 
     @Override
-    public void deleteById(int theId) {
-        Long theIdl=(long)theId;
-        partRepository.deleteById(theIdl);
+    public void deleteById(final int theId) {
+        final Long theIdl=(long)theId;
+        this.partRepository.deleteById(theIdl);
     }
 }

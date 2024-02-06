@@ -29,17 +29,17 @@ class InhousePartServiceTest {
     InhousePartService inhousePartService;
     @BeforeEach
     void setUp() {
-        inhousePartRepository=mock(InhousePartRepository.class);
-        inhousePartService=new InhousePartServiceImpl(inhousePartRepository);
+        this.inhousePartRepository =mock(InhousePartRepository.class);
+        this.inhousePartService =new InhousePartServiceImpl(this.inhousePartRepository);
     }
 
     @Test
     void findAll() {
-        InhousePart part=new InhousePart();
-        List partData=new ArrayList();
+        final InhousePart part=new InhousePart();
+        final List partData=new ArrayList();
         partData.add(part);
-        when(inhousePartRepository.findAll()).thenReturn(partData);
-        List<InhousePart> parts=inhousePartService.findAll();
+        when(this.inhousePartRepository.findAll()).thenReturn(partData);
+        final List<InhousePart> parts= this.inhousePartService.findAll();
         assertEquals(partData.size(),1);
     }
 }

@@ -14,12 +14,12 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class DeletePartValidator implements ConstraintValidator<ValidDeletePart, Part> {
     @Override
-    public void initialize(ValidDeletePart constraintAnnotation) {
+    public void initialize(final ValidDeletePart constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(Part part, ConstraintValidatorContext constraintValidatorContext) {
+    public boolean isValid(final Part part, final ConstraintValidatorContext constraintValidatorContext) {
         return part.getProducts().isEmpty();
     }
 }

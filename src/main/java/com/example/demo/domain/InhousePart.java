@@ -18,10 +18,10 @@ public class InhousePart extends Part{
     }
 
     public int getPartId() {
-        return partId;
+        return this.partId;
     }
 
-    public void setPartId(int partId) {
+    public void setPartId(final int partId) {
         this.partId = partId;
     }
 }

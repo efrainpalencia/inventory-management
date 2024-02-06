@@ -31,149 +31,149 @@ class PartTest {
     private Validator validator;
     @BeforeEach
     void setUp() {
-        partIn=new InhousePart();
-        partOut=new OutsourcedPart();
-        LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
+        this.partIn =new InhousePart();
+        this.partOut =new OutsourcedPart();
+        final LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
         localValidatorFactoryBean.afterPropertiesSet();
-        validator = localValidatorFactoryBean;
+        this.validator = localValidatorFactoryBean;
     }
     @Test
     void getId() {
-        Long idValue=4L;
-        partIn.setId(idValue);
-        assertEquals(partIn.getId(), idValue);
-        partOut.setId(idValue);
-        assertEquals(partOut.getId(), idValue);
+        final Long idValue=4L;
+        this.partIn.setId(idValue);
+        assertEquals(this.partIn.getId(), idValue);
+        this.partOut.setId(idValue);
+        assertEquals(this.partOut.getId(), idValue);
     }
 
     @Test
     void setId() {
-        Long idValue=4L;
-        partIn.setId(idValue);
-        assertEquals(partIn.getId(), idValue);
-        partOut.setId(idValue);
-        assertEquals(partOut.getId(), idValue);
+        final Long idValue=4L;
+        this.partIn.setId(idValue);
+        assertEquals(this.partIn.getId(), idValue);
+        this.partOut.setId(idValue);
+        assertEquals(this.partOut.getId(), idValue);
     }
 
     @Test
     void getName() {
         String name="test inhouse part";
-        partIn.setName(name);
-        assertEquals(name,partIn.getName());
+        this.partIn.setName(name);
+        assertEquals(name, this.partIn.getName());
         name="test outsourced part";
-        partOut.setName(name);
-        assertEquals(name,partOut.getName());
+        this.partOut.setName(name);
+        assertEquals(name, this.partOut.getName());
     }
 
     @Test
     void setName() {
         String name="test inhouse part";
-        partIn.setName(name);
-        assertEquals(name,partIn.getName());
+        this.partIn.setName(name);
+        assertEquals(name, this.partIn.getName());
         name="test outsourced part";
-        partOut.setName(name);
-        assertEquals(name,partOut.getName());
+        this.partOut.setName(name);
+        assertEquals(name, this.partOut.getName());
     }
 
     @Test
     void getPrice() {
-        double price=1.0;
-        partIn.setPrice(price);
-        assertEquals(price,partIn.getPrice());
-        partOut.setPrice(price);
-        assertEquals(price,partOut.getPrice());
+        final double price=1.0;
+        this.partIn.setPrice(price);
+        assertEquals(price, this.partIn.getPrice());
+        this.partOut.setPrice(price);
+        assertEquals(price, this.partOut.getPrice());
     }
 
     @Test
     void setPrice() {
-        double price=1.0;
-        partIn.setPrice(price);
-        assertEquals(price,partIn.getPrice());
-        partOut.setPrice(price);
-        assertEquals(price,partOut.getPrice());
+        final double price=1.0;
+        this.partIn.setPrice(price);
+        assertEquals(price, this.partIn.getPrice());
+        this.partOut.setPrice(price);
+        assertEquals(price, this.partOut.getPrice());
     }
 
     @Test
     void getInv() {
-        int inv=5;
-        partIn.setInv(inv);
-        assertEquals(inv,partIn.getInv());
-        partOut.setInv(inv);
-        assertEquals(inv,partOut.getInv());
+        final int inv=5;
+        this.partIn.setInv(inv);
+        assertEquals(inv, this.partIn.getInv());
+        this.partOut.setInv(inv);
+        assertEquals(inv, this.partOut.getInv());
     }
 
     @Test
     void setInv() {
-        int inv=5;
-        partIn.setInv(inv);
-        assertEquals(inv,partIn.getInv());
-        partOut.setInv(inv);
-        assertEquals(inv,partOut.getInv());
+        final int inv=5;
+        this.partIn.setInv(inv);
+        assertEquals(inv, this.partIn.getInv());
+        this.partOut.setInv(inv);
+        assertEquals(inv, this.partOut.getInv());
     }
 
     @Test
     void getProducts() {
-        Product product1= new Product();
-        Product product2= new Product();
-        Set<Product> myProducts= new HashSet<>();
+        final Product product1= new Product();
+        final Product product2= new Product();
+        final Set<Product> myProducts= new HashSet<>();
         myProducts.add(product1);
         myProducts.add(product2);
-        partIn.setProducts(myProducts);
-        assertEquals(myProducts,partIn.getProducts());
-        partOut.setProducts(myProducts);
-        assertEquals(myProducts,partOut.getProducts());
+        this.partIn.setProducts(myProducts);
+        assertEquals(myProducts, this.partIn.getProducts());
+        this.partOut.setProducts(myProducts);
+        assertEquals(myProducts, this.partOut.getProducts());
     }
 
     @Test
     void setProducts() {
-        Product product1= new Product();
-        Product product2= new Product();
-        Set<Product> myProducts= new HashSet<>();
+        final Product product1= new Product();
+        final Product product2= new Product();
+        final Set<Product> myProducts= new HashSet<>();
         myProducts.add(product1);
         myProducts.add(product2);
-        partIn.setProducts(myProducts);
-        assertEquals(myProducts,partIn.getProducts());
-        partOut.setProducts(myProducts);
-        assertEquals(myProducts,partOut.getProducts());
+        this.partIn.setProducts(myProducts);
+        assertEquals(myProducts, this.partIn.getProducts());
+        this.partOut.setProducts(myProducts);
+        assertEquals(myProducts, this.partOut.getProducts());
     }
 
     @Test
     void testToString() {
         String name="test inhouse part";
-        partIn.setName(name);
-        assertEquals(name,partIn.toString());
+        this.partIn.setName(name);
+        assertEquals(name, this.partIn.toString());
         name="test outsourced part";
-        partOut.setName(name);
-        assertEquals(name,partOut.toString());
+        this.partOut.setName(name);
+        assertEquals(name, this.partOut.toString());
     }
 
     @Test
     void testEquals() {
-        partIn.setId(1L);
-        Part newPartIn=new InhousePart();
+        this.partIn.setId(1L);
+        final Part newPartIn=new InhousePart();
         newPartIn.setId(1L);
-        assertEquals(partIn,newPartIn);
-        partOut.setId(1L);
-        Part newPartOut=new OutsourcedPart();
+        assertEquals(this.partIn,newPartIn);
+        this.partOut.setId(1L);
+        final Part newPartOut=new OutsourcedPart();
         newPartOut.setId(1L);
-        assertEquals(partOut,newPartOut);
+        assertEquals(this.partOut,newPartOut);
 
     }
 
     @Test
     void testHashCode() {
-        partIn.setId(1L);
-        partOut.setId(1L);
-        assertEquals(partIn.hashCode(),partOut.hashCode());
+        this.partIn.setId(1L);
+        this.partOut.setId(1L);
+        assertEquals(this.partIn.hashCode(), this.partOut.hashCode());
     }
 
     @Test
     void minInventoryShouldNotBeBelowMinimum() {
-        Part partIn = new InhousePart();
-        int invalidMinInventoryValue = -1;
+        final Part partIn = new InhousePart();
+        final int invalidMinInventoryValue = -1;
         partIn.setMinInventory(invalidMinInventoryValue);
 
-        Set<ConstraintViolation<Part>> violations = validator.validate(partIn);
+        final Set<ConstraintViolation<Part>> violations = this.validator.validate(partIn);
 
         assertFalse(violations.isEmpty(), "Expected ConstraintViolationException");
     }
@@ -182,11 +182,11 @@ class PartTest {
 
     @Test
     void minInventoryShouldNotExceedMaximum() {
-        partIn.setMinInventory(2);
+        this.partIn.setMinInventory(2);
 
         try {
-            partIn.setMinInventory(partIn.getMinInventory());
-        } catch (Exception e) {
+            this.partIn.setMinInventory(this.partIn.getMinInventory());
+        } catch (final Exception e) {
             e.printStackTrace();
         }
     }
@@ -195,22 +195,22 @@ class PartTest {
     @Test
     void maxInventoryShouldNotBeBelowMinimum() {
 
-        Part partIn = new InhousePart();
-        int invalidMinInventoryValue = -1;
+        final Part partIn = new InhousePart();
+        final int invalidMinInventoryValue = -1;
         partIn.setMinInventory(invalidMinInventoryValue);
 
-        Set<ConstraintViolation<Part>> violations = validator.validate(partIn);
+        final Set<ConstraintViolation<Part>> violations = this.validator.validate(partIn);
 
         assertFalse(violations.isEmpty(), "Expected ConstraintViolationException");
     }
 
     @Test
     void maxInventoryShouldNotExceedMaximum() {
-        partIn.setMinInventory(2);
+        this.partIn.setMinInventory(2);
 
         try {
-            partIn.setMinInventory(partIn.getMinInventory());
-        } catch (Exception e) {
+            this.partIn.setMinInventory(this.partIn.getMinInventory());
+        } catch (final Exception e) {
             e.printStackTrace();
         }
     }

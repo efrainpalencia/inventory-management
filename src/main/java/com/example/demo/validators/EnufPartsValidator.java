@@ -21,18 +21,18 @@ public class EnufPartsValidator implements ConstraintValidator<ValidEnufParts, P
     private ApplicationContext context;
     public static  ApplicationContext myContext;
     @Override
-    public void initialize(ValidEnufParts constraintAnnotation) {
+    public void initialize(final ValidEnufParts constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(Product product, ConstraintValidatorContext constraintValidatorContext) {
-        if(context==null) return true;
-        if(context!=null)myContext=context;
-        ProductService repo = myContext.getBean(ProductServiceImpl.class);
-        if (product.getId() != 0) {
-            Product myProduct = repo.findById((int) product.getId());
-            for (Part p : myProduct.getParts()) {
+    public boolean isValid(final Product product, final ConstraintValidatorContext constraintValidatorContext) {
+        if(null == context) return true;
+        if(null != context) EnufPartsValidator.myContext = this.context;
+        final ProductService repo = EnufPartsValidator.myContext.getBean(ProductServiceImpl.class);
+        if (0 != product.getId()) {
+            final Product myProduct = repo.findById((int) product.getId());
+            for (final Part p : myProduct.getParts()) {
                 if (p.getInv()<(product.getInv()-myProduct.getInv()))return false;
             }
             return true;

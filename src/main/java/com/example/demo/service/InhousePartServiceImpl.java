@@ -21,19 +21,19 @@ public class InhousePartServiceImpl implements InhousePartService {
     private final InhousePartRepository partRepository;
 
     @Autowired
-    public InhousePartServiceImpl(InhousePartRepository partRepository) {
+    public InhousePartServiceImpl(final InhousePartRepository partRepository) {
         this.partRepository = partRepository;
     }
 
     @Override
     public List<InhousePart> findAll() {
-        return (List<InhousePart>) partRepository.findAll();
+        return (List<InhousePart>) this.partRepository.findAll();
     }
 
     @Override
-    public InhousePart findById(int theId) {
-        Long theIdl=(long)theId;
-        Optional<InhousePart> result = partRepository.findById(theIdl);
+    public InhousePart findById(final int theId) {
+        final Long theIdl=(long)theId;
+        final Optional<InhousePart> result = this.partRepository.findById(theIdl);
 
         InhousePart thePart = null;
 
@@ -50,15 +50,15 @@ public class InhousePartServiceImpl implements InhousePartService {
     }
 
     @Override
-    public void save(InhousePart thePart) {
-        partRepository.save(thePart);
+    public void save(final InhousePart thePart) {
+        this.partRepository.save(thePart);
 
     }
 
     @Override
-    public void deleteById(int theId) {
-        Long theIdl=(long)theId;
-        partRepository.deleteById(theIdl);
+    public void deleteById(final int theId) {
+        final Long theIdl=(long)theId;
+        this.partRepository.deleteById(theIdl);
     }
 
 }

@@ -20,20 +20,20 @@ class InhousePartTest {
     InhousePart ip;
     @BeforeEach
     void setUp() {
-        ip= new InhousePart();
+        this.ip = new InhousePart();
     }
 
     @Test
     void getPartId() {
-        int idValue=4;
-        ip.setPartId(idValue);
-        assertEquals(ip.getPartId(), idValue);
+        final int idValue=4;
+        this.ip.setPartId(idValue);
+        assertEquals(this.ip.getPartId(), idValue);
     }
 
     @Test
     void setPartId() {
-        int idValue=4;
-        ip.setPartId(idValue);
-        assertEquals(ip.getPartId(), idValue);
+        final int idValue=4;
+        this.ip.setPartId(idValue);
+        assertEquals(this.ip.getPartId(), idValue);
     }
 }

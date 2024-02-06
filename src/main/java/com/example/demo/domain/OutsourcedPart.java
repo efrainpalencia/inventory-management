@@ -18,10 +18,10 @@ String companyName;
     }
 
     public String getCompanyName() {
-        return companyName;
+        return this.companyName;
     }
 
-    public void setCompanyName(String companyName) {
+    public void setCompanyName(final String companyName) {
         this.companyName = companyName;
     }
 }

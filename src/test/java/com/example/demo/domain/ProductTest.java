@@ -23,106 +23,106 @@ class ProductTest {
     Product product;
     @BeforeEach
     public void setUp(){
-        product=new Product();
+        this.product =new Product();
     }
     @Test
     void getId() {
-        Long idValue=4L;
-        product.setId(idValue);
-        assertEquals(product.getId(), idValue);
+        final Long idValue=4L;
+        this.product.setId(idValue);
+        assertEquals(this.product.getId(), idValue);
     }
 
     @Test
     void setId() {
-        Long idValue=4L;
-        product.setId(idValue);
-        assertEquals(product.getId(), idValue);
+        final Long idValue=4L;
+        this.product.setId(idValue);
+        assertEquals(this.product.getId(), idValue);
     }
 
     @Test
     void getName() {
-        String name="test product";
-        product.setName(name);
-        assertEquals(name,product.getName());
+        final String name="test product";
+        this.product.setName(name);
+        assertEquals(name, this.product.getName());
     }
 
     @Test
     void setName() {
-        String name="test product";
-        product.setName(name);
-        assertEquals(name,product.getName());
+        final String name="test product";
+        this.product.setName(name);
+        assertEquals(name, this.product.getName());
     }
 
     @Test
     void getPrice() {
-        double price=1.0;
-        product.setPrice(price);
-        assertEquals(price,product.getPrice());
+        final double price=1.0;
+        this.product.setPrice(price);
+        assertEquals(price, this.product.getPrice());
     }
 
     @Test
     void setPrice() {
-        double price=1.0;
-        product.setPrice(price);
-        assertEquals(price,product.getPrice());
+        final double price=1.0;
+        this.product.setPrice(price);
+        assertEquals(price, this.product.getPrice());
     }
 
     @Test
     void getInv() {
-        int inv=5;
-        product.setInv(inv);
-        assertEquals(inv,product.getInv());
+        final int inv=5;
+        this.product.setInv(inv);
+        assertEquals(inv, this.product.getInv());
     }
 
     @Test
     void setInv() {
-        int inv=5;
-        product.setInv(inv);
-        assertEquals(inv,product.getInv());
+        final int inv=5;
+        this.product.setInv(inv);
+        assertEquals(inv, this.product.getInv());
     }
 
     @Test
     void getParts() {
-        Part part1 = new OutsourcedPart();
-        Part part2 = new InhousePart();
-        Set<Part> myParts= new HashSet<>();
+        final Part part1 = new OutsourcedPart();
+        final Part part2 = new InhousePart();
+        final Set<Part> myParts= new HashSet<>();
         myParts.add(part1);
         myParts.add(part2);
-        product.setParts(myParts);
-        assertEquals(myParts,product.getParts());
+        this.product.setParts(myParts);
+        assertEquals(myParts, this.product.getParts());
     }
 
     @Test
     void setParts() {
-        Part part1 = new OutsourcedPart();
-        Part part2 = new InhousePart();
-        Set<Part> myParts= new HashSet<>();
+        final Part part1 = new OutsourcedPart();
+        final Part part2 = new InhousePart();
+        final Set<Part> myParts= new HashSet<>();
         myParts.add(part1);
         myParts.add(part2);
-        product.setParts(myParts);
-        assertEquals(myParts,product.getParts());
+        this.product.setParts(myParts);
+        assertEquals(myParts, this.product.getParts());
     }
 
     @Test
     void testToString() {
-        String name="test product";
-        product.setName(name);
-        assertEquals(name,product.toString());
+        final String name="test product";
+        this.product.setName(name);
+        assertEquals(name, this.product.toString());
     }
 
     @Test
     void testEquals() {
-        product.setId(1L);
-        Product newProduct= new Product();
+        this.product.setId(1L);
+        final Product newProduct= new Product();
         newProduct.setId(1L);
-        assertEquals(product,newProduct);
+        assertEquals(this.product,newProduct);
     }
 
     @Test
     void testHashCode() {
-        product.setId(1L);
-        Product newProduct= new Product();
+        this.product.setId(1L);
+        final Product newProduct= new Product();
         newProduct.setId(1L);
-        assertEquals(product.hashCode(),newProduct.hashCode());
+        assertEquals(this.product.hashCode(),newProduct.hashCode());
     }
 }

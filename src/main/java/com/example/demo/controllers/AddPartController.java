@@ -27,28 +27,28 @@ public class AddPartController {
     private ApplicationContext context;
 
     @GetMapping("/showPartFormForUpdate")
-    public String showPartFormForUpdate(@RequestParam("partID") int theId,Model theModel){
+    public String showPartFormForUpdate(@RequestParam("partID") final int theId, final Model theModel){
 
-        PartService repo=context.getBean(PartServiceImpl.class);
-        OutsourcedPartService outsourcedrepo=context.getBean(OutsourcedPartServiceImpl.class);
-        InhousePartService inhouserepo=context.getBean(InhousePartServiceImpl.class);
+        final PartService repo= this.context.getBean(PartServiceImpl.class);
+        final OutsourcedPartService outsourcedrepo= this.context.getBean(OutsourcedPartServiceImpl.class);
+        final InhousePartService inhouserepo= this.context.getBean(InhousePartServiceImpl.class);
 
         boolean inhouse=true;
-        List<OutsourcedPart> outsourcedParts=outsourcedrepo.findAll();
-        for(OutsourcedPart outsourcedPart:outsourcedParts) {
+        final List<OutsourcedPart> outsourcedParts=outsourcedrepo.findAll();
+        for(final OutsourcedPart outsourcedPart:outsourcedParts) {
             if (outsourcedPart.getId() == theId) {
                 inhouse = false;
                 break;
             }
         }
-        String formtype;
+        final String formtype;
         if(inhouse){
-            InhousePart inhousePart=inhouserepo.findById(theId);
+            final InhousePart inhousePart=inhouserepo.findById(theId);
             theModel.addAttribute("inhousepart",inhousePart);
             formtype="InhousePartForm";
         }
         else{
-            OutsourcedPart outsourcedPart=outsourcedrepo.findById(theId);
+            final OutsourcedPart outsourcedPart=outsourcedrepo.findById(theId);
             theModel.addAttribute("outsourcedpart",outsourcedPart);
             formtype="OutsourcedPartForm";
         }
@@ -56,9 +56,9 @@ public class AddPartController {
     }
 
     @GetMapping("/deletepart")
-    public String deletePart(@Valid @RequestParam("partID") int theId,  Model theModel){
-        PartService repo = context.getBean(PartServiceImpl.class);
-        Part part=repo.findById(theId);
+    public String deletePart(@Valid @RequestParam("partID") final int theId, final Model theModel){
+        final PartService repo = this.context.getBean(PartServiceImpl.class);
+        final Part part=repo.findById(theId);
         if(part.getProducts().isEmpty()){
             repo.deleteById(theId);
             return "confirmationdeletepart";

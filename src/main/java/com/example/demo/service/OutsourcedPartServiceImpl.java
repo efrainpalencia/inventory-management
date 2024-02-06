@@ -19,19 +19,19 @@ public class OutsourcedPartServiceImpl implements OutsourcedPartService{
     private final OutsourcedPartRepository partRepository;
 
     @Autowired
-    public OutsourcedPartServiceImpl(OutsourcedPartRepository partRepository) {
+    public OutsourcedPartServiceImpl(final OutsourcedPartRepository partRepository) {
         this.partRepository = partRepository;
     }
 
     @Override
     public List<OutsourcedPart> findAll() {
-        return (List<OutsourcedPart>) partRepository.findAll();
+        return (List<OutsourcedPart>) this.partRepository.findAll();
     }
 
     @Override
-    public OutsourcedPart findById(int theId) {
-        Long theIdl=(long)theId;
-        Optional<OutsourcedPart> result = partRepository.findById(theIdl);
+    public OutsourcedPart findById(final int theId) {
+        final Long theIdl=(long)theId;
+        final Optional<OutsourcedPart> result = this.partRepository.findById(theIdl);
 
         OutsourcedPart thePart = null;
 
@@ -48,15 +48,15 @@ public class OutsourcedPartServiceImpl implements OutsourcedPartService{
     }
 
     @Override
-    public void save(OutsourcedPart thePart) {
-        partRepository.save(thePart);
+    public void save(final OutsourcedPart thePart) {
+        this.partRepository.save(thePart);
 
     }
 
     @Override
-    public void deleteById(int theId) {
-        Long theIdl=(long)theId;
-        partRepository.deleteById(theIdl);
+    public void deleteById(final int theId) {
+        final Long theIdl=(long)theId;
+        this.partRepository.deleteById(theIdl);
     }
 
 }

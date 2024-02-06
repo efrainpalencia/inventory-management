@@ -22,20 +22,20 @@ class OutsourcedPartTest {
 
     @BeforeEach
     void setUp() {
-        op= new OutsourcedPart();
+        this.op = new OutsourcedPart();
     }
 
     @Test
     void getCompanyName() {
-        String name="test company name";
-        op.setCompanyName(name);
-        assertEquals(name,op.getCompanyName());
+        final String name="test company name";
+        this.op.setCompanyName(name);
+        assertEquals(name, this.op.getCompanyName());
     }
 
     @Test
     void setCompanyName() {
-        String name="test company name";
-        op.setCompanyName(name);
-        assertEquals(name,op.getCompanyName());
+        final String name="test company name";
+        this.op.setCompanyName(name);
+        assertEquals(name, this.op.getCompanyName());
     }
 }

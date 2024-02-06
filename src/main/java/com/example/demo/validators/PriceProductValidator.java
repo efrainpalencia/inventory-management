@@ -26,19 +26,19 @@ public class PriceProductValidator implements ConstraintValidator<ValidProductPr
     public static  ApplicationContext myContext;
 
     @Override
-    public void initialize(ValidProductPrice constraintAnnotation) {
+    public void initialize(final ValidProductPrice constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(Product product, ConstraintValidatorContext constraintValidatorContext) {
-        if(context==null) return true;
-        if(context!=null)myContext=context;
-        ProductService repo = myContext.getBean(ProductServiceImpl.class);
+    public boolean isValid(final Product product, final ConstraintValidatorContext constraintValidatorContext) {
+        if(null == context) return true;
+        if(null != context) PriceProductValidator.myContext = this.context;
+        final ProductService repo = PriceProductValidator.myContext.getBean(ProductServiceImpl.class);
         double sumPartsPrice = 0;
-        if (product.getId() != 0) {
-            Product myProduct = repo.findById((int) product.getId());
-            for (Part p : myProduct.getParts()) sumPartsPrice = sumPartsPrice + p.getPrice();
+        if (0 != product.getId()) {
+            final Product myProduct = repo.findById((int) product.getId());
+            for (final Part p : myProduct.getParts()) sumPartsPrice = sumPartsPrice + p.getPrice();
             return product.getPrice() >= sumPartsPrice;
         }
         else {
