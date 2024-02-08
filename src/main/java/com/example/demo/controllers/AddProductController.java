@@ -135,8 +135,11 @@ public class AddProductController {
         if (0 < currInventory) {
           product2.setInv(currInventory - 1);
           productService.save(product2);
+            return "confirmationbuyproduct";
+        } else {
+            return "buyproductfailed";
         }
-        return "confirmationbuyproduct";
+
     }
 
     public AddProductController(final PartService partService) {
