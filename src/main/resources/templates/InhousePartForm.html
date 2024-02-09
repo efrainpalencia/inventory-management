@@ -15,6 +15,7 @@
 
     <label for="partName">Part Name</label>
 <p><input type="text" th:field="*{name}" placeholder="Name" id="partName" class="form-control mb-4 col-4"/></p>
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
 
   <label for="price">Price</label>
 <p><input type="text" path="price" th:field="*{price}" placeholder="Price" id="price" class="form-control mb-4 col-4"/></p>
@@ -22,11 +23,11 @@
 
     <label for="minInventory">Minimum Inventory</label>
     <p><input type="text" path="minInv" th:field="*{minInventory}" placeholder="Minimum Inventory" id="minInventory" class="form-control mb-4 col-4" ></p>
-        <p th:if="${#fields.hasErrors('minInventory')}" th:errors="*{minInventory}">Inventory Error</p>
+        <p th:if="${#fields.hasErrors('minInventory')}" th:errors="*{minInventory}">Minimum Inventory Error</p>
 
     <label for="maxInventory">Maximum Inventory</label>
     <p><input type="text" path="maxInv" th:field="*{maxInventory}" placeholder="Maximum Inventory" id="maxInventory" class="form-control mb-4 col-4" ></p>
-    <p th:if="${#fields.hasErrors('maxInventory')}" th:errors="*{maxInventory}">Inventory Error</p>
+    <p th:if="${#fields.hasErrors('maxInventory')}" th:errors="*{maxInventory}">Maximum Inventory Error</p>
 
     <label for="currInventory">Current Inventory</label>
 <p><input type="text" path="inv" th:field="*{inv}" placeholder="Inventory" id="currInventory" class="form-control mb-4 col-4"/></p>
@@ -34,6 +35,7 @@
 
     <label for="partId">Part Id</label>
     <p><input type="text" th:field="*{partId}" placeholder="Part ID" id="partId" class="form-control mb-4 col-4"/></p>
+    <p th:if="${#fields.hasErrors('partId')}" th:errors="*{partId}">Part ID Error</p>
 
 <p><input type="submit" value="Submit" /></p>
 </form>

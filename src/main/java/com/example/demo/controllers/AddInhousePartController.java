@@ -39,6 +39,12 @@ public class AddInhousePartController{
     @PostMapping("/showFormAddInPart")
     public String submitForm(@Valid @ModelAttribute("inhousepart") final InhousePart part, final BindingResult theBindingResult, final Model theModel){
         theModel.addAttribute("inhousepart",part);
+
+        if (part.getInv() < part.getMinInventory() || part.getInv() > part.getMaxInventory()) {
+            theBindingResult.rejectValue("inv", "inventory.range",
+                    "Inventory must be between " + part.getMinInventory() + " and " + part.getMaxInventory());
+        }
+
         if(theBindingResult.hasErrors()){
             return "InhousePartForm";
         }

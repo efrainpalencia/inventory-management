@@ -28,15 +28,16 @@ public abstract class Part implements Serializable {
     @Min(value = 0, message = "Price value must be positive")
     double price;
     @Min(value = 0, message = "Error! Inventory is below the minimum!")
-    @Max(value = 1, message = "Error! Inventory is greater than the maximum!")
+    @Max(value = 20, message = "Error! Inventory is greater than the maximum!")
     int inv;
 
     @Min(value = 0, message = "Error! Inventory is below the minimum!")
-    @Max(value = 1, message = "Error! Inventory is greater than the maximum!")
+    @Max(value = 20, message = "Error! Inventory is greater than the maximum!")
+    @Column(name = "min_inventory")
     int minInventory;
 
     @Min(value = 0, message = "Error! Inventory is below the minimum!")
-    @Max(value = 1, message = "Error! Inventory is greater than the maximum!")
+    @Max(value = 20, message = "Error! Inventory is greater than the maximum!")
     @Column(name = "max_inventory")
     int maxInventory;
 
