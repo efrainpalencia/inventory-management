@@ -58,6 +58,14 @@ Welcome to Deckster Skate Shop, an online skateboard store application! This REA
 
 **Lines 34-39:** Added validation for minimum and maximum values with appropriate error messages. 
 
+### **AddinhousePartController.java**
+
+**Lines 43-46:** Added logic to enforce minimun and maximum values.
+
+### **AddOutsourcedPartController.java**
+
+**Lines 44-47:** Added logic to enforce minimun and maximum values.
+
 ## **I. Unit Tests for Maximum and Minimum Fields** 
 
 ### **PartTest.java** 
@@ -68,34 +76,7 @@ Welcome to Deckster Skate Shop, an online skateboard store application! This REA
 
 ### **Removed unused class files for cleaner code:** 
 
-AddPartController.java 
-
-MainScreenController.java 
-
-PartRepository.java 
-
-ProductRepository.java 
-
-InhousePartService.java 
-
-InhousePartServiceImpl.java 
-
-OutsourcedPartService.java 
-
-OutsourcedPartServiceImpl.java 
-
-PartService.java 
-
-PartServiceImpl.java 
-
-ProductService.java 
-
-ProductServiceImpl.java 
-
 DeletePartValidator.java 
 
-PriceProductValidator.java 
-
-ProductTest.java 
 
  
