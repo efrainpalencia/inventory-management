@@ -60,11 +60,11 @@ Welcome to Deckster Skate Shop, an online skateboard store application! This REA
 
 ### **AddinhousePartController.java**
 
-**Lines 43-46:** Added logic to enforce minimun and maximum values.
+**Lines 43-46:** Added logic to enforce minimum and maximum values.
 
 ### **AddOutsourcedPartController.java**
 
-**Lines 44-47:** Added logic to enforce minimun and maximum values.
+**Lines 44-47:** Added logic to enforce minimum and maximum values.
 
 ## **I. Unit Tests for Maximum and Minimum Fields** 
 
