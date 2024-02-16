@@ -82,11 +82,7 @@ Welcome to Deckster Skate Shop, an online skateboard store application! This REA
 
 ## **J. Unused Validators Removal** 
 
-<<<<<<< HEAD
 ### **Removed unused class files for cleaner code:**
-=======
-### **Removed unused class files for cleaner code:** 
->>>>>>> 86d6a9a6c2311a4bb5c5f8243e5748b4d8ea3c3d
 
 DeletePartValidator.java 
 
