@@ -64,38 +64,19 @@ Welcome to Deckster Skate Shop, an online skateboard store application! This REA
 
 **Lines 171, 184, 196, 208:** Added tests to ensure that minInventory and maxInventory stay within the specified limits. 
 
+### **EnufPartsValidator.java**
+
+**Lines 22,27, 36-45:** Included a constraint to check for parts below the minimum.
+
+### **LowInventoryException.java**
+
+**LInes 1-10:** Created a custom exception handler for below the minimum inventory.
+
 ## **J. Unused Validators Removal** 
 
-### **Removed unused class files for cleaner code:** 
-
-AddPartController.java 
-
-MainScreenController.java 
-
-PartRepository.java 
-
-ProductRepository.java 
-
-InhousePartService.java 
-
-InhousePartServiceImpl.java 
-
-OutsourcedPartService.java 
-
-OutsourcedPartServiceImpl.java 
-
-PartService.java 
-
-PartServiceImpl.java 
-
-ProductService.java 
-
-ProductServiceImpl.java 
+### **Removed unused class files for cleaner code:**
 
 DeletePartValidator.java 
 
-PriceProductValidator.java 
-
-ProductTest.java 
 
  
