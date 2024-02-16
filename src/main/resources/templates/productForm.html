@@ -22,7 +22,7 @@
 
     <label for="inv">Inventory</label>
     <p><input type="text" th:field="*{inv}" placeholder="Inventory" id="inv" class="form-control mb-4 col-4"/></p>
-
+    <div th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}" class="alert alert-danger"></div>
     <p>
     <div th:if="${#fields.hasAnyErrors()}">
     <ul><li th:each="err: ${#fields.allErrors()}" th:text="${err}"></li></ul>

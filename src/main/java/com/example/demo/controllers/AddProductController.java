@@ -99,7 +99,7 @@ public class AddProductController {
         final ProductService repo = this.context.getBean(ProductServiceImpl.class);
         final Product theProduct = repo.findById(theId);
         AddProductController.product1 =theProduct;
-    //    this.product=product;
+        //    this.product=product;
         //set the employ as a model attibute to prepopulate the form
         theModel.addAttribute("product", theProduct);
         theModel.addAttribute("assparts",theProduct.getParts());
@@ -133,8 +133,8 @@ public class AddProductController {
         final Product product2=productService.findById(theId);
         final int currInventory = product2.getInv();
         if (0 < currInventory) {
-          product2.setInv(currInventory - 1);
-          productService.save(product2);
+            product2.setInv(currInventory - 1);
+            productService.save(product2);
             return "confirmationbuyproduct";
         } else {
             return "buyproductfailed";
@@ -149,31 +149,31 @@ public class AddProductController {
 
     @GetMapping("/associatepart")
     public String associatePart(@Valid @RequestParam("partID") final int theID, final Model theModel){
-    //    theModel.addAttribute("product", product);
-    //    Product product1=new Product();
+        //    theModel.addAttribute("product", product);
+        //    Product product1=new Product();
         if (null == product1.getName()) {
             return "saveproductscreen";
         }
         else{
             AddProductController.product1.getParts().add(this.partService.findById(theID));
             this.partService.findById(theID).getProducts().add(AddProductController.product1);
-        final ProductService productService = this.context.getBean(ProductServiceImpl.class);
-        productService.save(AddProductController.product1);
+            final ProductService productService = this.context.getBean(ProductServiceImpl.class);
+            productService.save(AddProductController.product1);
             this.partService.save(this.partService.findById(theID));
-        theModel.addAttribute("product", AddProductController.product1);
-        theModel.addAttribute("assparts", AddProductController.product1.getParts());
-        final List<Part>availParts=new ArrayList<>();
-        for(final Part p: this.partService.findAll()){
-            if(!AddProductController.product1.getParts().contains(p))availParts.add(p);
-        }
-        theModel.addAttribute("availparts",availParts);
-        return "productForm";}
- //        return "confirmationassocpart";
+            theModel.addAttribute("product", AddProductController.product1);
+            theModel.addAttribute("assparts", AddProductController.product1.getParts());
+            final List<Part>availParts=new ArrayList<>();
+            for(final Part p: this.partService.findAll()){
+                if(!AddProductController.product1.getParts().contains(p))availParts.add(p);
+            }
+            theModel.addAttribute("availparts",availParts);
+            return "productForm";}
+        //        return "confirmationassocpart";
     }
     @GetMapping("/removepart")
     public String removePart(@RequestParam("partID") final int theID, final Model theModel){
         theModel.addAttribute("product", this.product);
-      //  Product product1=new Product();
+        //  Product product1=new Product();
         AddProductController.product1.getParts().remove(this.partService.findById(theID));
         this.partService.findById(theID).getProducts().remove(AddProductController.product1);
         final ProductService productService = this.context.getBean(ProductServiceImpl.class);

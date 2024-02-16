@@ -19,26 +19,35 @@ import javax.validation.ConstraintValidatorContext;
 public class EnufPartsValidator implements ConstraintValidator<ValidEnufParts, Product> {
     @Autowired
     private ApplicationContext context;
+    private String belowMinMessage;
     public static  ApplicationContext myContext;
     @Override
     public void initialize(final ValidEnufParts constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
+        belowMinMessage = constraintAnnotation.belowMinMessage();
     }
 
     @Override
     public boolean isValid(final Product product, final ConstraintValidatorContext constraintValidatorContext) {
-        if(null == context) return true;
-        if(null != context) EnufPartsValidator.myContext = this.context;
-        final ProductService repo = EnufPartsValidator.myContext.getBean(ProductServiceImpl.class);
-        if (0 != product.getId()) {
-            final Product myProduct = repo.findById((int) product.getId());
-            for (final Part p : myProduct.getParts()) {
-                if (p.getInv()<(product.getInv()-myProduct.getInv()))return false;
-            }
+        if (null == this.context) {
             return true;
         }
-        else{
-                return true;
+
+        final ProductService productService = context.getBean(ProductServiceImpl.class);
+        if (0 != product.getId()) {
+            final Product existingProduct = productService.findById((int) product.getId());
+            for (final Part p : existingProduct.getParts()) {
+                // Check if inventory will be below minimum after adding/removing parts
+                final int updatedPartInventory = p.getInv() - (product.getInv() - existingProduct.getInv());
+                if (updatedPartInventory < p.getMinInventory()) {
+                    constraintValidatorContext.disableDefaultConstraintViolation();
+                    constraintValidatorContext.buildConstraintViolationWithTemplate(belowMinMessage)
+                            .addConstraintViolation();
+                    return false;
+                }
             }
+        }
+        return true;
     }
+
 }
