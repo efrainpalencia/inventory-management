@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import com.example.demo.validators.ValidDeletePart;
+import com.example.demo.validators.ValidEnufParts;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -16,7 +17,6 @@ import java.util.Set;
  *
  */
 @Entity
-@ValidDeletePart
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
 @Table(name="Parts")
@@ -27,17 +27,14 @@ public abstract class Part implements Serializable {
     String name;
     @Min(value = 0, message = "Price value must be positive")
     double price;
-    @Min(value = 0, message = "Error! Inventory is below the minimum!")
-    @Max(value = 20, message = "Error! Inventory is greater than the maximum!")
+    @Min(value = 0, message = "Price value must be positive")
     int inv;
 
-    @Min(value = 0, message = "Error! Inventory is below the minimum!")
-    @Max(value = 20, message = "Error! Inventory is greater than the maximum!")
+    @Min(value = 0, message = "Price value must be positive")
     @Column(name = "min_inventory")
     int minInventory;
 
-    @Min(value = 0, message = "Error! Inventory is below the minimum!")
-    @Max(value = 20, message = "Error! Inventory is greater than the maximum!")
+    @Min(value = 0, message = "Price value must be positive")
     @Column(name = "max_inventory")
     int maxInventory;
 
