@@ -28,7 +28,7 @@
     <ul><li th:each="err: ${#fields.allErrors()}" th:text="${err}"></li></ul>
     </div>
     </p>
-    <p><input type="submit" value="Submit" th:disabled="${#lists.isEmpty(product.parts)}" title="Please add a part before submitting the form" /></p>
+    <p><input type="submit" value="Submit"/></p>
 </form>
 
 

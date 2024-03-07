@@ -1,10 +1,6 @@
 package com.example.demo.domain;
 
-import com.example.demo.validators.ValidDeletePart;
-import com.example.demo.validators.ValidEnufParts;
-
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -27,10 +23,10 @@ public abstract class Part implements Serializable {
     String name;
     @Min(value = 0, message = "Price value must be positive")
     double price;
-    @Min(value = 0, message = "Price value must be positive")
+    @Min(value = 1, message = "Price value must be positive")
     int inv;
 
-    @Min(value = 0, message = "Price value must be positive")
+    @Min(value = 1, message = "Minimum value must be greater than 0")
     @Column(name = "min_inventory")
     int minInventory;
 
