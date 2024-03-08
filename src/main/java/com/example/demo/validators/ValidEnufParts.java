@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidEnufParts {
     String message() default "There aren't enough parts in inventory!";
-    String belowMinMessage() default "Adding this product will reduce parts inventory below the minimum. Remove the part(s) and try again.";
+    String belowMinMessage() default "Adding this product will reduce parts inventory below the minimum.";
     Class<?> [] groups() default {};
     Class<? extends Payload> [] payload() default {};
 
