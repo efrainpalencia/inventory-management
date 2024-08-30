@@ -2,8 +2,6 @@ package com.example.demo.controllers;
 
 import com.example.demo.domain.Part;
 import com.example.demo.domain.Product;
-import com.example.demo.repositories.PartRepository;
-import com.example.demo.repositories.ProductRepository;
 import com.example.demo.service.PartService;
 import com.example.demo.service.ProductService;
 import org.springframework.data.repository.query.Param;
@@ -21,7 +19,7 @@ import java.util.List;
  */
 
 @Controller
-public class MainScreenControllerr {
+public class SearchBarController {
    // private final PartRepository partRepository;
    // private final ProductRepository productRepository;'
 
@@ -36,11 +34,11 @@ public class MainScreenControllerr {
         this.productRepository = productRepository;
     }*/
 
-    public MainScreenControllerr(final PartService partService, final ProductService productService){
+    public SearchBarController(final PartService partService, final ProductService productService){
         this.partService=partService;
         this.productService=productService;
     }
-    @GetMapping("/mainscreen")
+    @GetMapping("/searchBar")
     public String listPartsandProducts(final Model theModel, @Param("partkeyword") final String partkeyword, @Param("productkeyword") final String productkeyword){
         //add to the sprig model
         final List<Part> partList= this.partService.listAll(partkeyword);
@@ -50,6 +48,6 @@ public class MainScreenControllerr {
         final List<Product> productList= this.productService.listAll(productkeyword);
         theModel.addAttribute("products", productList);
         theModel.addAttribute("productkeyword",productkeyword);
-        return "mainscreen";
+        return "searchBar";
     }
 }
