@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Part Form</title>
-
-<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
-</head>
-<body>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head"><title>Product Detail</title></head>
+<body class="d-flex flex-column min-vh-100">
+<header th:replace="fragments :: navBar"></header>
+<main class="flex-grow-1 container-lg">
+    <hr>
 <h1>Product Detail</h1>
-<form action="#" th:action="@{/showFormAddProduct}" th:object="${product}" method="POST"}>
+<form action="#" th:action="@{/showFormAddProduct}" th:object="${product}" method="POST" }>
     <!-- Add hidden form field to handle update -->
     <p><input type="hidden" th:field="*{id}"/></p>
 
@@ -27,8 +23,7 @@
     <div th:if="${#fields.hasAnyErrors()}">
     <ul><li th:each="err: ${#fields.allErrors()}" th:text="${err}"></li></ul>
     </div>
-    </p>
-    <p><input type="submit" value="Submit"/></p>
+    <p><input class="btn btn-primary btn-sm mb-3" type="submit" value="Submit"/></p>
 </form>
 
 
@@ -67,13 +62,13 @@
             <td th:text="${tempPart.name}">1</td>
             <td th:text="${tempPart.price}">1</td>
             <td th:text="${tempPart.inv}">1</td>
-            <td><a th:href="@{/removepart(partID=${tempPart.id})}"  class="btn btn-primary btn-sm mb-3">Remove</a>
+            <td><a th:href="@{/removepart(partID=${tempPart.id})}"  class="btn btn-danger btn-sm mb-3">Remove</a>
             </td>
         </tr>
         </tbody>
     </table>
-
-<!--<footer><a href="http://localhost:8080/">Link-->
-<!--    to Main Screen</a></footer>-->
+</main>
+<div th:replace="fragments :: jsScripts"></div>
+<div th:replace="fragments :: footer"></div>
 </body>
 </html>

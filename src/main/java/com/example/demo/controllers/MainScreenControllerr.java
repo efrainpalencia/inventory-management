@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 @Controller
-public class SearchBarController {
+public class MainScreenControllerr {
    // private final PartRepository partRepository;
    // private final ProductRepository productRepository;'
 
@@ -34,12 +34,12 @@ public class SearchBarController {
         this.productRepository = productRepository;
     }*/
 
-    public SearchBarController(final PartService partService, final ProductService productService){
+    public MainScreenControllerr(final PartService partService, final ProductService productService){
         this.partService=partService;
         this.productService=productService;
     }
-    @GetMapping("/searchBar")
-    public String listPartsandProducts(final Model theModel, @Param("partkeyword") final String partkeyword, @Param("productkeyword") final String productkeyword){
+    @GetMapping("/mainscreen")
+    public String listPartsProducts(final Model theModel, @Param("partkeyword") final String partkeyword, @Param("productkeyword") final String productkeyword){
         //add to the sprig model
         final List<Part> partList= this.partService.listAll(partkeyword);
         theModel.addAttribute("parts",partList);
@@ -48,6 +48,6 @@ public class SearchBarController {
         final List<Product> productList= this.productService.listAll(productkeyword);
         theModel.addAttribute("products", productList);
         theModel.addAttribute("productkeyword",productkeyword);
-        return "searchBar";
+        return "mainscreen";
     }
 }

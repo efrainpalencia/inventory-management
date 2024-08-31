@@ -48,27 +48,27 @@ public class BootStrapData implements CommandLineRunner {
         final InhousePart part1 = new InhousePart();
         part1.setName("REAL WOODEN RISERS SET 5PLY 1/4″ THUNDER");
         part1.setPrice(5.0);
-        part1.setInv(1);
-        part1.setMinInventory(0);
-        part1.setMaxInventory(1);
+        part1.setInv(5);
+        part1.setMinInventory(1);
+        part1.setMaxInventory(10);
 
         this.inhousePartRepository.save(part1);
 
         final InhousePart part2 = new InhousePart();
         part2.setName("THERE MILLER AROUND DECK-8.5X32.0");
         part2.setPrice(75.0);
-        part2.setInv(1);
-        part2.setMinInventory(0);
-        part2.setMaxInventory(1);
+        part2.setInv(5);
+        part2.setMinInventory(1);
+        part2.setMaxInventory(10);
 
         this.inhousePartRepository.save(part2);
 
         final OutsourcedPart part3 = new OutsourcedPart();
         part3.setName("VENTURE SYLLA VCH HI 5.8 BLOODSHOT POLISHED x2");
         part3.setPrice(65.0);
-        part3.setInv(1);
-        part3.setMinInventory(0);
-        part3.setMaxInventory(1);
+        part3.setInv(5);
+        part3.setMinInventory(1);
+        part3.setMaxInventory(10);
         part3.setCompanyName("Skateboard.com");
 
         this.outsourcedPartRepository.save(part3);
@@ -77,9 +77,9 @@ public class BootStrapData implements CommandLineRunner {
         final OutsourcedPart part4 = new OutsourcedPart();
         part4.setName("QUANTUM DIAMOND SERIES CERAMIC HYBRID BEARINGS X4");
         part4.setPrice(15.0);
-        part4.setInv(1);
-        part4.setMinInventory(0);
-        part4.setMaxInventory(1);
+        part4.setInv(5);
+        part4.setMinInventory(1);
+        part4.setMaxInventory(10);
         part4.setCompanyName("Skateboard.com");
 
         this.outsourcedPartRepository.save(part4);
@@ -87,9 +87,9 @@ public class BootStrapData implements CommandLineRunner {
         final OutsourcedPart part5 = new OutsourcedPart();
         part5.setName("PWL/P DF NANO CUBIC 60/38MM 97A WHITE X4");
         part5.setPrice(50.0);
-        part5.setInv(1);
-        part5.setMinInventory(0);
-        part5.setMaxInventory(1);
+        part5.setInv(5);
+        part5.setMinInventory(1);
+        part5.setMaxInventory(10);
         part5.setCompanyName("Skateboard.com");
 
         this.outsourcedPartRepository.save(part5);

@@ -53,20 +53,20 @@ public class AddProductController {
         theModel.addAttribute("product", product);
 
         if(bindingResult.hasErrors()){
-            final ProductService productService = this.context.getBean(ProductServiceImpl.class);
-            Product product2 = new Product();
-            try {
-                product2 = productService.findById((int) product.getId());
-            } catch (final Exception e) {
-                System.out.println("Error Message " + e.getMessage());
-            }
-            theModel.addAttribute("parts", this.partService.findAll());
-            final List<Part>availParts=new ArrayList<>();
-            for(final Part p: this.partService.findAll()){
-                if(!product2.getParts().contains(p))availParts.add(p);
-            }
-            theModel.addAttribute("availparts",availParts);
-            theModel.addAttribute("assparts",product2.getParts());
+//            final ProductService productService = this.context.getBean(ProductServiceImpl.class);
+//            Product product2 = new Product();
+//            try {
+//                product2 = productService.findById((int) product.getId());
+//            } catch (final Exception e) {
+//                System.out.println("Error Message " + e.getMessage());
+//            }
+//            theModel.addAttribute("parts", this.partService.findAll());
+//            final List<Part>availParts=new ArrayList<>();
+//            for(final Part p: this.partService.findAll()){
+//                if(!product2.getParts().contains(p))availParts.add(p);
+//            }
+//            theModel.addAttribute("availparts",availParts);
+//            theModel.addAttribute("assparts",product2.getParts());
             return "productForm";
         }
 //        theModel.addAttribute("assparts", assparts);
@@ -76,12 +76,12 @@ public class AddProductController {
             final ProductService repo = this.context.getBean(ProductServiceImpl.class);
             if(0 != product.getId()) {
                 final Product product2 = repo.findById((int) product.getId());
-                final PartService partService1 = this.context.getBean(PartServiceImpl.class);
+                final PartService partService = this.context.getBean(PartServiceImpl.class);
                 if(0 < product.getInv() - product2.getInv()) {
                     for (final Part p : product2.getParts()) {
                         final int inv = p.getInv();
                         p.setInv(inv - (product.getInv() - product2.getInv()));
-                        partService1.save(p);
+                        partService.save(p);
                     }
                 }
             }
@@ -99,7 +99,6 @@ public class AddProductController {
         final ProductService repo = this.context.getBean(ProductServiceImpl.class);
         final Product theProduct = repo.findById(theId);
         AddProductController.product1 =theProduct;
-        //    this.product=product;
         //set the employ as a model attibute to prepopulate the form
         theModel.addAttribute("product", theProduct);
         theModel.addAttribute("assparts",theProduct.getParts());

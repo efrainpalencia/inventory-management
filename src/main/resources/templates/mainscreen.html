@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"><title>Home</title></head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-<div class="container">
-    <h1>Deckster</h1>
-    <a th:href="@{/about}">About</a>
+    <header th:replace="fragments :: navBar"></header>
+<main class="flex-grow-1 container-lg">
     <hr>
     <h2>Parts</h2>
-    <form th:action="@{/searchBar}">
+    <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="partkeyword" id="partkeyword" size="50" th:value="${partkeyword}" required />
         &nbsp;
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search" class="btn btn-secondary btn-sm mb-3" />
         &nbsp;
-        <input type="button" value="Clear" id="btnClearPart" onclick="clearSearch()" />
+        <input type="button" value="Clear" id="btnClearPart" onclick="clearSearch()" class="btn btn-secondary btn-sm mb-3" />
     </form>
     <br><br>
     <a th:href="@{/showFormAddInPart}" class="btn btn-primary btn-sm mb-3">Add Inhouse Part</a>
@@ -32,8 +31,8 @@
             <td th:text="${tempPart.name}">1</td>
             <td th:text="${tempPart.price}">1</td>
             <td th:text="${tempPart.inv}">1</td>
-            <td><a th:href="@{/showPartFormForUpdate(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3">Update</a>
-                <a th:href="@{/deletepart(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3"
+            <td><a th:href="@{/showPartFormForUpdate(partID=${tempPart.id})}" class="btn btn-warning btn-sm mb-3">Update</a>
+                <a th:href="@{/deletepart(partID=${tempPart.id})}" class="btn btn-danger btn-sm mb-3"
                    onclick="if(!(confirm('Are you sure you want to delete this part?')))return false">Delete</a>
             </td>
         </tr>
@@ -43,9 +42,9 @@
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="productkeyword" id="productkeyword" size="50" th:value="${productkeyword}" required />
         &nbsp;
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search" class="btn btn-secondary btn-sm mb-3" />
         &nbsp;
-        <input type="button" value="Clear" id="btnClearProduct" onclick="clearSearch()" />
+        <input type="button" value="Clear" id="btnClearProduct" onclick="clearSearch()" class="btn btn-secondary btn-sm mb-3" />
     </form>
     <script type="text/javascript">
         function clearSearch() {
@@ -54,7 +53,7 @@
     </script>
     <br><br>
     <a th:href="@{/showFormAddProduct}" class="btn btn-primary btn-sm mb-3">Add Product</a>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped ">
         <thead class="thead-dark">
         <tr>
             <th>Name</th>
@@ -68,16 +67,17 @@
             <td th:text="${tempProduct.name}">1</td>
             <td th:text="${tempProduct.price}">1</td>
             <td th:text="${tempProduct.inv}">1</td>
-            <td><a th:href="@{/showProductFormForUpdate(productID=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3">Update</a>
-                <a th:href="@{/deleteproduct(productID=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3"
+            <td><a th:href="@{/showProductFormForUpdate(productID=${tempProduct.id})}" class="btn btn-warning btn-sm mb-3">Update</a>
+                <a th:href="@{/deleteproduct(productID=${tempProduct.id})}" class="btn btn-danger btn-sm mb-3"
                    onclick="if(!(confirm('Are you sure you want to delete this product?')))return false">Delete</a>
-                <a th:href="@{/buyproduct(productID=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3"
-                   onclick="if(!(confirm('Press Ok to confirm and continue with your purchase!')))return false">Buy Now!</a>
+                <a th:href="@{/buyproduct(productID=${tempProduct.id})}" class="btn btn-success btn-sm mb-3"
+                   onclick="if(!(confirm('Press Ok to confirm and continue with your purchase!')))return false" >Buy Now!</a>
             </td>
         </tr>
         </tbody>
     </table>
-</div>
+</main>
 <div th:replace="fragments :: jsScripts"></div>
+<div th:replace="fragments :: footer"></div>
 </body>
 </html>
