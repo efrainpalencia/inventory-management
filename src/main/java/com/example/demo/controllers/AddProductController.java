@@ -114,13 +114,18 @@ public class AddProductController {
         final ProductService productService = this.context.getBean(ProductServiceImpl.class);
         final Product product2=productService.findById(theId);
         for(final Part part:product2.getParts()){
-            part.getProducts().remove(product2);
-            this.partService.save(part);
-        }
-        product2.getParts().removeAll(product2.getParts());
-        productService.save(product2);
-        productService.deleteById(theId);
+            if (product2.getParts().isEmpty()) {
+                part.getProducts().remove(product2);
+                this.partService.save(part);
 
+                product2.getParts().removeAll(product2.getParts());
+                productService.save(product2);
+                productService.deleteById(theId);
+
+            } else {
+                return "negativeerror";
+            }
+        }
         return "confirmationdeleteproduct";
     }
 

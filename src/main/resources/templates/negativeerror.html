@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="refresh"
+          content="2;URL='mainscreen'">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="../static/css/styles.css">
     <title>Negative Error</title>
 </head>
-<body>
-<p>Cannot delete a part used in a product</p>
-<a href="http://localhost:8080/">Link
-    to Main Screen</a>
+<body class="d-flex flex-column min-vh-100">
+<header th:replace="fragments :: navBar"></header>
+<main class="flex-grow-1 container-lg">
+    <hr>
+<h1>Cannot delete a part used in a product</h1>
+
+    <a th:href="@{/}">Link
+        to Main Screen</a>
+
+</main>
+<div th:replace="fragments :: jsScripts"></div>
+<div th:replace="fragments :: footer"></div>
 </body>
 </html>
