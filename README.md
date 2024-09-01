@@ -1,6 +1,6 @@
 # **Deckster Skate Shop**
 
-Welcome to Deckster Skate Shop, an online skateboard store application! This README provides a detailed overview of the changes made in response to prompts C to J. 
+Welcome to Deckster Skate Shop, an online skateboard store application! I was tasked with updating the website to meet the clients requirements. This README provides a detailed overview of the changes made in response to requirement prompts C to J. 
 
 ## **C. Customized HTML User Interface** 
 
