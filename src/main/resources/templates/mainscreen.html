@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head"><title>Home</title></head>
+<head th:replace="fragments :: head">
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>Home</title>
+</head>
 <body class="d-flex flex-column min-vh-100">
+
+<div th:replace="fragments :: productModal"></div>
 
     <header th:replace="fragments :: navBar"></header>
 <main class="flex-grow-1 container-lg">
+
     <hr>
     <h2>Parts</h2>
     <form th:action="@{/mainscreen}">
@@ -32,7 +39,8 @@
             <td th:text="${tempPart.name}">1</td>
             <td th:text="${tempPart.price}">1</td>
             <td th:text="${tempPart.inv}">1</td>
-            <td><a th:href="@{/showPartFormForUpdate(partID=${tempPart.id})}" class="btn btn-warning btn-sm mb-3">Update</a>
+            <td>
+                <a th:href="@{/showPartFormForUpdate(partID=${tempPart.id})}" class="btn btn-warning btn-sm mb-3">Update</a>
                 <a th:href="@{/deletepart(partID=${tempPart.id})}" class="btn btn-danger btn-sm mb-3"
                    onclick="if(!(confirm('Are you sure you want to delete this part?')))return false">Delete</a>
             </td>
@@ -69,7 +77,16 @@
             <td th:text="${tempProduct.name}">1</td>
             <td th:text="${tempProduct.price}">1</td>
             <td th:text="${tempProduct.inv}">1</td>
-            <td><a th:href="@{/showProductFormForUpdate(productID=${tempProduct.id})}" class="btn btn-warning btn-sm mb-3">Update</a>
+            <td>
+                <button type="button" class="btn btn-secondary btn-sm mb-3"
+                        data-bs-toggle="modal"
+                        data-bs-target="#productModal"
+                        th:data-id="${tempProduct.id}"    >
+                    Details
+                </button>
+                <button type="button" class="btn btn-warning btn-sm mb-3" th:href="@{/showProductFormForUpdate(productID=${tempProduct.id})}">
+                    Update
+                </button>
                 <a th:href="@{/deleteproduct(productID=${tempProduct.id})}" class="btn btn-danger btn-sm mb-3"
                    onclick="if(!(confirm('Are you sure you want to delete this product?')))return false">Delete</a>
                 <a th:href="@{/buyproduct(productID=${tempProduct.id})}" class="btn btn-success btn-sm mb-3"
@@ -81,5 +98,7 @@
 </main>
 <div th:replace="fragments :: jsScripts"></div>
 <div th:replace="fragments :: footer"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script th:src="@{/js/modal.js}"></script>
 </body>
 </html>

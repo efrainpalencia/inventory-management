@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 @Controller
-public class MainScreenControllerr {
+public class MainScreenController {
    // private final PartRepository partRepository;
    // private final ProductRepository productRepository;'
 
@@ -29,10 +29,11 @@ public class MainScreenControllerr {
     private List<Part> theParts;
     private List<Product> theProducts;
 
-    public MainScreenControllerr(final PartService partService, final ProductService productService){
+    public MainScreenController(final PartService partService, final ProductService productService){
         this.partService=partService;
         this.productService=productService;
     }
+
     @GetMapping("/mainscreen")
     public String listPartsProducts(final Model theModel, @Param("partkeyword") final String partkeyword, @Param("productkeyword") final String productkeyword){
         //add to the sprig model
