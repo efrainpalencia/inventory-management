@@ -28,9 +28,9 @@ public class AddProductController {
     @Autowired
     private ApplicationContext context;
     private final PartService partService;
-    private List<Part> theParts;
     private static Product product1;
     private Product product;
+
 
     @GetMapping("/showFormAddProduct")
     public String showFormAddPart(final Model theModel) {
