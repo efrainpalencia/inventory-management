@@ -29,11 +29,6 @@ public class MainScreenControllerr {
     private List<Part> theParts;
     private List<Product> theProducts;
 
- /*   public MainScreenControllerr(PartRepository partRepository, ProductRepository productRepository) {
-        this.partRepository = partRepository;
-        this.productRepository = productRepository;
-    }*/
-
     public MainScreenControllerr(final PartService partService, final ProductService productService){
         this.partService=partService;
         this.productService=productService;
