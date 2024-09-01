@@ -1,12 +1,54 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en" data-bs-theme="dark">
 <head th:replace="fragments :: head"><title>About</title></head>
 <body class="d-flex flex-column min-vh-100">
 <header th:replace="fragments :: navBar"></header>
-    <h1 class="text-center">About Deckster</h1>
-    <p class="fs-5 text-break lh-base flex-grow-1 container-lg text-center">
-        Deckster is an online skateboard company that creates custom skateboards for skaters who want to express their unique style and personality. Whether you want to design your own deck, choose from our wide range of graphics, or mix and match different parts, we can help you create your dream skateboard. We use high-quality materials and craftsmanship to ensure that your skateboard is durable, smooth, and fun to ride. We also offer fast and free shipping, easy returns, and excellent customer service. At Deckster, we are passionate about skateboarding, and we want to share that passion with you. Join our community of skaters and discover the joy of custom skateboards with Deckster.
-    </p>
+<main class="flex-grow-1 container-lg">
+    <div class="p-4">
+        <h1 class="text-center">About <span class="text-danger">Deckster</span></h1>
+    </div>
+
+    <div class="p-4 container-lg text-center">
+        <div class="row">
+            <div class="col align-self-start">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{images/skateboard-2565190_640.jpg}" class="card-img-top" alt="about image 2">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Deckster is an online skateboard company that creates custom skateboards for skaters who
+                            want to express their unique style and personality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col align-self-start">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{images/skateboard-2271295_640.jpg}" class="card-img-top" alt="about image 1">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Whether you want to design your own deck, choose from our wide range of graphics, or mix and
+                            match different parts, we can help you create your dream skateboard. We use high-quality
+                            materials and craftsmanship to ensure that your skateboard is durable, smooth, and fun to
+                            ride.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col align-self-end">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{images/skateboard-6518594_640.jpg}" class="card-img-top" alt="about image 3">
+                    <div class="card-body">
+                        <p class="card-text">
+                            We also offer fast and free shipping, easy returns, and excellent customer service. At
+                            Deckster, we are passionate about skateboarding, and we want to share that passion with you.
+                            Join our community of skaters and discover the joy of custom skateboards with Deckster.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 <div th:replace="fragments :: jsScripts"></div>
 <div th:replace="fragments :: footer"></div>
 </body>

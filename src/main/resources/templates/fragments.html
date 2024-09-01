@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
 <head th:fragment="head">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,7 +14,9 @@
 <header th:fragment="navBar">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/}">Deckster</a>
+            <div class="badge text-bg-danger text-wrap" style="width: 6rem;">
+                <a class="navbar-brand" th:href="@{/}">Deckster</a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,7 +48,7 @@
                     <div class="row">
                         <img src="" alt="product image" class="img-fluid">
                     </div>
-                    <div class="row">
+                    <div class="mt-2 row">
                         <h3 th:text="${name}"></h3>
                     </div>
                     <div class="mt-4 row">
@@ -58,7 +60,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -67,7 +69,7 @@
 </body>
 <!-- Footer -->
 <div th:fragment="footer">
-    <footer class="footer mt-auto py-3 bg-light ">
+    <footer class="footer mt-auto py-3 bg-dark ">
         <div class="container">
             <span class="text-muted">© 2024 Deckster Skateboard Manufacturing Co.</span>
         </div>

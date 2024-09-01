@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
 <head th:replace="fragments :: head">
     <!-- Styles CSS -->
     <link rel="stylesheet" href="../static/css/styles.css">
     <title>Home</title>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 " data-bs-theme="dark">
 
 <div th:replace="fragments :: productModal"></div>
 
@@ -18,8 +18,8 @@
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Filter:</span>
             <input type="text" class="form-control" name="partkeyword" id="partkeyword"  th:value="${partkeyword}" required  aria-label="Search Filter" aria-describedby="basic-addon1">
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
-            <button class="btn btn-outline-secondary" type="button" id="btnClearPart" onclick="clearSearch()">Clear</button>
+            <button class="btn btn-outline-warning" type="submit">Search</button>
+            <button class="btn btn-outline-warning" type="button" id="btnClearPart" onclick="clearSearch()">Clear</button>
         </div>
     </form>
     <br><br>
@@ -52,8 +52,8 @@
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon2">Filter:</span>
             <input type="text" class="form-control" name="productkeyword" id="productkeyword"  th:value="${productkeyword}" required  aria-label="Search Filter" aria-describedby="basic-addon2">
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
-            <button class="btn btn-outline-secondary" type="button" id="btnClearPart2" onclick="clearSearch()">Clear</button>
+            <button class="btn btn-outline-warning" type="submit">Search</button>
+            <button class="btn btn-outline-warning" type="button" id="btnClearPart2" onclick="clearSearch()">Clear</button>
         </div>
     </form>
     <script type="text/javascript">
@@ -78,15 +78,13 @@
             <td th:text="${tempProduct.price}">1</td>
             <td th:text="${tempProduct.inv}">1</td>
             <td>
-                <button type="button" class="btn btn-secondary btn-sm mb-3"
+                <button type="button" class="btn btn-info btn-sm mb-3"
                         data-bs-toggle="modal"
                         data-bs-target="#productModal"
                         th:data-id="${tempProduct.id}"    >
                     Details
                 </button>
-                <button type="button" class="btn btn-warning btn-sm mb-3" th:href="@{/showProductFormForUpdate(productID=${tempProduct.id})}">
-                    Update
-                </button>
+                <a th:href="@{/showProductFormForUpdate(productID=${tempProduct.id})}" class="btn btn-warning btn-sm mb-3">Update</a>
                 <a th:href="@{/deleteproduct(productID=${tempProduct.id})}" class="btn btn-danger btn-sm mb-3"
                    onclick="if(!(confirm('Are you sure you want to delete this product?')))return false">Delete</a>
                 <a th:href="@{/buyproduct(productID=${tempProduct.id})}" class="btn btn-success btn-sm mb-3"
