@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### prod db ###
+.prod-db-variables.txt
