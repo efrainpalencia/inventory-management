@@ -13,7 +13,7 @@ import java.util.Set;
  *
  */
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 @ValidProductPrice
 @ValidEnufParts
 public class Product implements Serializable {
